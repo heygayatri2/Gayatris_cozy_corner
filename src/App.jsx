@@ -15,6 +15,7 @@ import Category from './pages/Category';
 import AdminLogin from './admin/AdminLogin';
 import Dashboard from './admin/Dashboard';
 import AddPost from './admin/AddPost';
+import EditPost from './admin/EditPost';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route element={<ProtectedRoute />}>
           <Route path="/admin/dashboard" element={<Dashboard />} />
           <Route path="/admin/add-post" element={<AddPost />} />
+          <Route path="/admin/edit-post/:slug" element={<EditPost />} />
           <Route path="/admin/links" element={<div className="flex h-screen items-center justify-center text-xl font-display">Manage Links (WIP)</div>} />
         </Route>
         
