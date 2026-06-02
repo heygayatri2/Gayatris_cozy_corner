@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+}
+
+/* Smooth page transitions */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Gradient text animation */
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Floating animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Glow animation */
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(197, 129, 124, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(197, 129, 124, 0.6);
+  }
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Pulse animation */
+@keyframes pulse-soft {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Custom link hover effect */
+a {
+  @apply transition-all duration-300;
+}
+
+/* Page transition wrapper */
+.page-transition {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* Enhanced button styles */
+button {
+  @apply transition-all duration-200;
+}
+
+button:hover {
+  @apply shadow-lg;
+}
+
+/* Gradient text helper */
+.gradient-text {
+  background: linear-gradient(135deg, #c5817c 0%, #8b7355 50%, #a8a890 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
+}
+
+/* Button pulse animation */
+@keyframes buttonPulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(197, 129, 124, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(197, 129, 124, 0);
+  }
+}
+
+/* Button glow animation */
+@keyframes buttonGlow {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.3), 0 0 10px rgba(197, 129, 124, 0.2);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(197, 129, 124, 0.4);
+  }
+}
+
+/* Slide in left animation */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Ripple effect animation */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Radial gradient effect */
+.bg-radial {
+  background: radial-gradient(circle, var(--tw-gradient-stops));
+}
