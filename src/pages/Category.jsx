@@ -38,10 +38,10 @@ export default function Category({ category }) {
   }, [category]);
 
   return (
-    <div className="min-h-screen bg-cream pb-20">
+    <div className="min-h-screen bg-surface pb-20 transition-colors duration-300">
       {/* Header Section */}
       <motion.section 
-        className="bg-gradient-to-br from-softBrown via-sage/20 to-blush/10 py-20 relative overflow-hidden"
+        className="bg-gradient-to-br from-surface-hover via-accent/10 to-surface py-20 relative overflow-hidden"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
       >
@@ -49,16 +49,16 @@ export default function Category({ category }) {
         <motion.div
           animate={{ y: [0, -30, 0], rotate: [0, 5, -5, 0] }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-10 right-10 w-48 h-48 bg-white/10 rounded-full blur-3xl"
+          className="absolute top-10 right-10 w-48 h-48 bg-accent/10 rounded-full blur-3xl pointer-events-none"
         />
         <motion.div
           animate={{ y: [0, 30, 0], rotate: [0, -5, 5, 0] }}
           transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-          className="absolute bottom-10 left-10 w-48 h-48 bg-cream/20 rounded-full blur-3xl"
+          className="absolute bottom-10 left-10 w-48 h-48 bg-surface-hover rounded-full blur-3xl pointer-events-none"
         />
 
         <div className="max-w-7xl mx-auto px-4 relative z-10">
-          <Link to="/" className="inline-flex items-center text-white/70 hover:text-white transition mb-6 text-sm font-medium">
+          <Link to="/" className="inline-flex items-center text-secondary hover:text-primary transition mb-6 text-sm font-medium">
             <ArrowLeft size={16} className="mr-2" /> Back to Home
           </Link>
 
@@ -70,11 +70,11 @@ export default function Category({ category }) {
             >
               {categoryEmojis[category] || '✨'}
             </motion.div>
-            <h1 className="font-display text-5xl md:text-6xl font-bold text-white drop-shadow-lg">
+            <h1 className="font-display text-5xl md:text-6xl font-bold text-primary drop-shadow-lg">
               {categoryTitles[category] || category}
             </h1>
           </div>
-          <p className="text-lg text-white/80 max-w-2xl">
+          <p className="text-lg text-secondary max-w-2xl">
             Explore our collection of {categoryTitles[category]?.toLowerCase()} posts, tips, and inspiration.
           </p>
         </div>
@@ -88,7 +88,7 @@ export default function Category({ category }) {
             transition={{ duration: 1.5, repeat: Infinity }}
             className="flex justify-center"
           >
-            <p className="text-softBrown text-lg font-medium">Loading beautiful content...</p>
+            <p className="text-accent text-lg font-medium">Loading beautiful content...</p>
           </motion.div>
         ) : posts.length === 0 ? (
           <motion.div
@@ -97,7 +97,7 @@ export default function Category({ category }) {
             className="text-center py-20"
           >
             <div className="text-6xl mb-4">🌿</div>
-            <p className="text-dark/60 italic text-lg">No posts in this category yet. Check back soon!</p>
+            <p className="text-secondary italic text-lg">No posts in this category yet. Check back soon!</p>
           </motion.div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -108,24 +108,23 @@ export default function Category({ category }) {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                whileHover={{ y: -10 }}
                 className="group"
               >
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col backdrop-blur-sm">
+                <div className="glass-panel overflow-hidden h-full flex flex-col hover:-translate-y-2 transition-transform duration-300">
                   {/* Image Container */}
-                  <div className="relative overflow-hidden bg-gradient-to-br from-sage/20 to-blush/20 flex items-center justify-center min-h-56">
+                  <div className="relative overflow-hidden bg-surface-hover flex items-center justify-center min-h-56">
                     {post.thumbnail_url ? (
                       <motion.img 
                         src={post.thumbnail_url} 
                         alt={post.title} 
-                        className="w-full h-full object-contain"
-                        whileHover={{ scale: 1.1 }}
+                        className="w-full h-full object-cover aspect-video"
+                        whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.5 }}
                       />
                     ) : (
-                      <div className="absolute inset-0 bg-gradient-to-br from-blush to-sage" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5" />
                     )}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   </div>
 
                   {/* Content Container */}
@@ -136,24 +135,22 @@ export default function Category({ category }) {
                       viewport={{ once: true }}
                       className="flex justify-between items-center mb-4"
                     >
-                      <span className="px-3 py-1 bg-gradient-to-r from-sage/30 to-blush/30 text-dark/70 text-xs font-semibold rounded-full capitalize">
+                      <span className="px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full capitalize">
                         {post.category}
                       </span>
                       <motion.span 
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                        className="text-xs text-dark/50 flex items-center"
+                        className="text-xs text-secondary flex items-center"
                       >
                         <Eye size={14} className="mr-1" /> {post.views}
                       </motion.span>
                     </motion.div>
 
-                    <h3 className="font-display text-xl font-bold mb-3 text-dark group-hover:text-softBrown transition-colors">
+                    <h3 className="font-display text-xl font-bold mb-3 text-primary group-hover:text-accent transition-colors">
                       {post.title}
                     </h3>
 
                     <div 
-                      className="text-sm text-dark/70 mb-4 line-clamp-3 flex-1 prose"
+                      className="text-sm text-secondary mb-4 line-clamp-3 flex-1 prose dark:prose-invert"
                       dangerouslySetInnerHTML={{ __html: post.content }}
                     />
 
@@ -162,7 +159,7 @@ export default function Category({ category }) {
                     >
                       <Link 
                         to={`/post/${post.slug}`} 
-                        className="text-softBrown font-semibold text-sm hover:text-dark transition-colors mt-auto inline-flex items-center"
+                        className="text-accent font-semibold text-sm hover:text-accent-hover transition-colors mt-auto inline-flex items-center"
                       >
                         Read More <ArrowRight size={14} className="ml-1" />
                       </Link>

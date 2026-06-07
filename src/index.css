@@ -2,6 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    --color-primary: #1A1A1A; /* Text dark */
+    --color-secondary: #4B5563; /* Text lighter */
+    --color-accent: #C5817C; /* Blush dark/rust */
+    --color-accent-hover: #A06460;
+    --color-surface: #FFF8F0; /* Cream background */
+    --color-surface-hover: #F8EBE1;
+    --color-border: #E5E7EB;
+  }
+
+  .dark {
+    --color-primary: #F9FAFB; /* Text light */
+    --color-secondary: #9CA3AF; /* Text dimmer */
+    --color-accent: #E8A598; /* Softer blush for dark mode */
+    --color-accent-hover: #C5817C;
+    --color-surface: #111827; /* Dark background */
+    --color-surface-hover: #1F2937;
+    --color-border: #374151;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-primary transition-colors duration-300;
+  }
+}
+
 @layer utilities {
   .perspective-1000 {
     perspective: 1000px;
@@ -9,6 +39,24 @@
   .preserve-3d {
     transform-style: preserve-3d;
   }
+  .glass-nav {
+    @apply backdrop-blur-md border-b border-border transition-colors duration-300;
+    background-color: color-mix(in srgb, var(--color-surface) 80%, transparent);
+  }
+  .glass-panel {
+    @apply backdrop-blur-lg border border-border shadow-glass transition-colors duration-300 rounded-2xl;
+    background-color: color-mix(in srgb, var(--color-surface) 60%, transparent);
+  }
+}
+
+/* Gradient text helper */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #8b7355 50%, #a8a890 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradientShift 3s ease infinite;
 }
 
 /* Smooth page transitions */
@@ -25,60 +73,14 @@
 
 /* Gradient text animation */
 @keyframes gradientShift {
-  0%, 100% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
 }
 
 /* Floating animation */
 @keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Glow animation */
-@keyframes glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(197, 129, 124, 0.3);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(197, 129, 124, 0.6);
-  }
-}
-
-/* Shimmer animation */
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-/* Pulse animation */
-@keyframes pulse-soft {
-  0%, 100% {
-    opacity: 1;
-  }
-  50% {
-    opacity: 0.7;
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  animation: fadeInUp 0.6s ease-out;
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
 }
 
 /* Custom link hover effect */

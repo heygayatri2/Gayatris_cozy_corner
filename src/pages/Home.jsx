@@ -40,7 +40,7 @@ export default function Home() {
       {/* Hero Section */}
       <motion.section 
         style={{ y, opacity }}
-        className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-cream via-blush/20 to-sage/10 pb-20"
+        className="relative h-[95vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-surface via-accent/10 to-surface-hover pb-20 transition-colors duration-300"
       >
         {/* Animated background elements */}
         <motion.div
@@ -49,7 +49,7 @@ export default function Home() {
             rotate: [0, 5, -5, 0]
           }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute top-20 right-20 w-64 h-64 bg-softBrown/10 rounded-full blur-3xl"
+          className="absolute top-20 right-20 w-64 h-64 bg-accent/10 rounded-full blur-3xl pointer-events-none"
         />
         <motion.div
           animate={{ 
@@ -57,7 +57,7 @@ export default function Home() {
             rotate: [0, -5, 5, 0]
           }}
           transition={{ duration: 10, repeat: Infinity, delay: 1 }}
-          className="absolute bottom-20 left-20 w-64 h-64 bg-sage/10 rounded-full blur-3xl"
+          className="absolute bottom-20 left-20 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none"
         />
         
         {/* Floating decorative elements */}
@@ -83,7 +83,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 1.2 }}
-            className="text-lg md:text-xl text-dark/70 mb-12 font-medium"
+            className="text-lg md:text-xl text-secondary mb-12 font-medium"
           >
             Your sanctuary for skincare, fashion & aesthetic lifestyle 🌿
           </motion.p>
@@ -96,20 +96,20 @@ export default function Home() {
           >
             <motion.a 
               href="#featured" 
-              whileHover={{ scale: 1.08, boxShadow: "0 25px 40px rgba(197, 129, 124, 0.5)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(197, 129, 124, 0.3)" }}
               whileTap={{ scale: 0.95 }}
-              className="group px-8 py-4 bg-gradient-to-r from-dark to-softBrown text-cream rounded-full font-bold text-base flex items-center transition-all hover:shadow-2xl shadow-lg cursor-pointer border-2 border-transparent hover:border-cream/50 relative overflow-hidden"
+              className="group px-8 py-4 bg-primary text-surface rounded-full font-bold text-base flex items-center transition-all shadow-lg cursor-pointer border-2 border-transparent relative overflow-hidden"
             >
               <span className="relative z-10 flex items-center">✨ Explore Posts <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" size={20} /></span>
-              <span className="absolute inset-0 bg-gradient-to-r from-softBrown to-dark opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ zIndex: 0 }} />
+              <span className="absolute inset-0 bg-secondary opacity-0 group-hover:opacity-20 transition-opacity duration-300" style={{ zIndex: 0 }} />
             </motion.a>
             <motion.div
-              whileHover={{ scale: 1.08, boxShadow: "0 25px 40px rgba(168, 168, 144, 0.5)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 10px 30px rgba(168, 168, 144, 0.3)" }}
               whileTap={{ scale: 0.95 }}
             >
-              <Link to="/products" className="group px-8 py-4 bg-gradient-to-r from-softBrown to-sage text-white rounded-full font-bold text-base flex items-center transition-all hover:shadow-2xl shadow-lg border-2 border-transparent hover:border-white/30 relative overflow-hidden">
+              <Link to="/products" className="group px-8 py-4 bg-accent text-surface rounded-full font-bold text-base flex items-center transition-all shadow-lg border-2 border-transparent relative overflow-hidden">
                 <span className="relative z-10 flex items-center">🛍️ Shop Favorites <ShoppingBag className="ml-2 group-hover:scale-110 transition-transform duration-300" size={20} /></span>
-                <span className="absolute inset-0 bg-gradient-to-r from-sage to-softBrown opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ zIndex: 0 }} />
+                <span className="absolute inset-0 bg-accent-hover opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ zIndex: 0 }} />
               </Link>
             </motion.div>
           </motion.div>
@@ -129,19 +129,19 @@ export default function Home() {
       </motion.section>
 
       {/* Featured Posts Section */}
-      <section id="featured" className="py-20 bg-cream relative">
+      <section id="featured" className="py-20 bg-surface transition-colors duration-300 relative">
         <div className="max-w-7xl mx-auto px-4">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-4xl font-bold text-center mb-16 text-dark"
+            className="font-display text-4xl font-bold text-center mb-16 text-primary"
           >
             <span className="relative inline-block">
               Latest Posts
               <motion.span 
                 layoutId="underline"
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-softBrown to-sage rounded-full"
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-accent to-accent/50 rounded-full"
               />
             </span>
           </motion.h2>
@@ -174,22 +174,22 @@ export default function Home() {
                   whileHover={{ y: -10 }}
                   className="group"
                 >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 h-full flex flex-col backdrop-blur-sm">
+                  <div className="glass-panel overflow-hidden h-full flex flex-col group-hover:-translate-y-2 transition-transform duration-300">
                     {/* Image Container */}
-                    <div className="relative overflow-hidden bg-gradient-to-br from-sage/20 to-blush/20 flex items-center justify-center min-h-56">
+                    <div className="relative overflow-hidden bg-surface-hover flex items-center justify-center min-h-56">
                       {post.thumbnail_url ? (
                         <motion.img 
                           src={post.thumbnail_url} 
                           alt={post.title} 
-                          className="w-full h-full object-contain"
-                          whileHover={{ scale: 1.1 }}
+                          className="w-full h-full object-cover aspect-video"
+                          whileHover={{ scale: 1.05 }}
                           transition={{ duration: 0.5 }}
                         />
                       ) : (
-                        <div className="absolute inset-0 bg-gradient-to-br from-blush to-sage" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-accent/20 to-accent/5" />
                       )}
                       {/* Overlay gradient */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                     </div>
 
                     {/* Content Container */}
@@ -201,26 +201,24 @@ export default function Home() {
                         viewport={{ once: true }}
                         className="flex justify-between items-center mb-4"
                       >
-                        <span className="px-3 py-1 bg-gradient-to-r from-sage/30 to-blush/30 text-dark/70 text-xs font-semibold rounded-full capitalize">
+                        <span className="px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full capitalize">
                           {post.category}
                         </span>
                         <motion.span 
-                          animate={{ scale: [1, 1.1, 1] }}
-                          transition={{ duration: 2, repeat: Infinity }}
-                          className="text-xs text-dark/50 flex items-center"
+                          className="text-xs text-secondary flex items-center"
                         >
                           <Eye size={14} className="mr-1" /> {post.views}
                         </motion.span>
                       </motion.div>
 
                       {/* Title */}
-                      <h3 className="font-display text-xl font-bold mb-3 text-dark group-hover:text-softBrown transition-colors">
+                      <h3 className="font-display text-xl font-bold mb-3 text-primary group-hover:text-accent transition-colors">
                         {post.title}
                       </h3>
 
                       {/* Excerpt */}
                       <div 
-                        className="text-sm text-dark/70 mb-4 line-clamp-3 flex-1 prose"
+                        className="text-sm text-secondary mb-4 line-clamp-3 flex-1 prose dark:prose-invert"
                         dangerouslySetInnerHTML={{ __html: post.content }}
                       />
 
@@ -230,7 +228,7 @@ export default function Home() {
                       >
                         <Link 
                           to={`/post/${post.slug}`} 
-                          className="text-softBrown font-semibold text-sm hover:text-dark transition-colors mt-auto inline-flex items-center"
+                          className="text-accent font-semibold text-sm hover:text-accent-hover transition-colors mt-auto inline-flex items-center"
                         >
                           Read More <ArrowRight size={14} className="ml-1" />
                         </Link>
@@ -245,13 +243,13 @@ export default function Home() {
       </section>
 
       {/* Categories Section */}
-      <section className="py-20 bg-gradient-to-b from-white to-cream/50 relative">
+      <section className="py-20 bg-gradient-to-b from-surface to-surface-hover transition-colors duration-300 relative">
         <div className="max-w-7xl mx-auto px-4">
           <motion.h2
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="font-display text-4xl font-bold text-center mb-16 text-dark"
+            className="font-display text-4xl font-bold text-center mb-16 text-primary"
           >
             Explore Categories
           </motion.h2>
@@ -268,11 +266,10 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                whileHover={{ y: -10 }}
               >
                 <Link 
                   to={cat.to} 
-                  className="group rounded-3xl p-8 text-center bg-gradient-to-br from-cream to-sage/20 shadow-md hover:shadow-2xl transition-all duration-300 border border-sage/20 h-full flex flex-col items-center justify-center backdrop-blur-sm"
+                  className="group rounded-3xl p-8 text-center glass-panel h-full flex flex-col items-center justify-center hover:-translate-y-2 transition-transform duration-300"
                 >
                   {/* Emoji Animation */}
                   <motion.div
@@ -284,12 +281,12 @@ export default function Home() {
                   </motion.div>
 
                   {/* Title */}
-                  <h3 className="font-display text-2xl font-bold mb-3 text-dark group-hover:text-softBrown transition-colors">
+                  <h3 className="font-display text-2xl font-bold mb-3 text-primary group-hover:text-accent transition-colors">
                     {cat.title}
                   </h3>
 
                   {/* Description */}
-                  <p className="text-dark/70 text-sm group-hover:text-dark transition-colors">
+                  <p className="text-secondary text-sm">
                     {cat.desc}
                   </p>
 
@@ -297,7 +294,7 @@ export default function Home() {
                   <motion.div
                     initial={{ opacity: 0, x: -10 }}
                     whileHover={{ opacity: 1, x: 5 }}
-                    className="mt-4 text-softBrown"
+                    className="mt-4 text-accent"
                   >
                     <ArrowRight size={20} />
                   </motion.div>

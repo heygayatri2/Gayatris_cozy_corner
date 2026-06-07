@@ -26,21 +26,18 @@ export default function Footer() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
-      className="relative mt-20 py-16 overflow-hidden"
+      className="relative mt-20 py-16 pb-24 md:pb-16 overflow-hidden bg-surface-hover transition-colors duration-300"
     >
-      {/* Gradient Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blush via-cream to-sage/20" />
-      
       {/* Decorative blobs */}
       <motion.div
         animate={{ rotate: 360 }}
         transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-        className="absolute -top-20 -right-20 w-40 h-40 bg-softBrown/10 rounded-full blur-3xl"
+        className="absolute -top-20 -right-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl pointer-events-none"
       />
       <motion.div
         animate={{ rotate: -360 }}
         transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
-        className="absolute -bottom-20 -left-20 w-40 h-40 bg-sage/10 rounded-full blur-3xl"
+        className="absolute -bottom-20 -left-20 w-40 h-40 bg-accent/5 rounded-full blur-3xl pointer-events-none"
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -62,7 +59,7 @@ export default function Footer() {
           {/* Tagline */}
           <motion.p
             variants={itemVariants}
-            className="text-sm opacity-80 mb-6 text-dark font-medium"
+            className="text-sm opacity-80 mb-6 text-secondary font-medium"
           >
             Your go-to place for skincare, fashion & lifestyle.
           </motion.p>
@@ -71,22 +68,22 @@ export default function Footer() {
           <motion.div variants={itemVariants} className="mb-8 flex justify-center gap-6">
             <motion.a
               href="#"
-              whileHover={{ scale: 1.1, color: '#8b7355' }}
-              className="text-dark/60 hover:text-softBrown transition-colors"
+              whileHover={{ scale: 1.1 }}
+              className="text-secondary hover:text-accent transition-colors"
             >
               Instagram
             </motion.a>
             <motion.a
               href="#"
-              whileHover={{ scale: 1.1, color: '#8b7355' }}
-              className="text-dark/60 hover:text-softBrown transition-colors"
+              whileHover={{ scale: 1.1 }}
+              className="text-secondary hover:text-accent transition-colors"
             >
               Pinterest
             </motion.a>
             <motion.a
               href="#"
-              whileHover={{ scale: 1.1, color: '#8b7355' }}
-              className="text-dark/60 hover:text-softBrown transition-colors"
+              whileHover={{ scale: 1.1 }}
+              className="text-secondary hover:text-accent transition-colors"
             >
               Email
             </motion.a>
@@ -95,7 +92,7 @@ export default function Footer() {
           {/* Copyright */}
           <motion.p
             variants={itemVariants}
-            className="text-xs opacity-60 text-dark"
+            className="text-xs opacity-60 text-secondary"
           >
             &copy; {new Date().getFullYear()} Gayatri's Cozy Corner. Made with ❤️ for your lifestyle.
           </motion.p>

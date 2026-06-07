@@ -6,17 +6,17 @@ export default function Contact() {
   const pinterestLink = 'https://pin.it/4AsqWmDsn';
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-cream via-cream to-blush/20 py-20 relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-surface via-surface to-accent/10 py-20 relative overflow-hidden transition-colors duration-300">
       {/* Animated background elements */}
       <motion.div
         animate={{ y: [0, -40, 0], rotate: [0, 5, -5, 0] }}
         transition={{ duration: 10, repeat: Infinity }}
-        className="absolute top-10 right-10 w-72 h-72 bg-softBrown/10 rounded-full blur-3xl"
+        className="absolute top-10 right-10 w-72 h-72 bg-accent/10 rounded-full blur-3xl pointer-events-none"
       />
       <motion.div
         animate={{ y: [0, 40, 0], rotate: [0, -5, 5, 0] }}
         transition={{ duration: 12, repeat: Infinity, delay: 1 }}
-        className="absolute bottom-20 left-10 w-64 h-64 bg-sage/10 rounded-full blur-3xl"
+        className="absolute bottom-20 left-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none"
       />
 
       <div className="max-w-6xl mx-auto px-4 relative z-10">
@@ -27,12 +27,12 @@ export default function Contact() {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h1 className="font-display text-5xl md:text-6xl font-bold text-dark mb-6">
+          <h1 className="font-display text-5xl md:text-6xl font-bold text-primary mb-6">
             We'd Love to Hear From You
           </h1>
-          <p className="text-lg text-dark/70 max-w-2xl mx-auto">
+          <p className="text-lg text-secondary max-w-2xl mx-auto">
             Reach out and let's connect! Have questions, collaboration ideas, or just want to chat? 
-            <span className="block text-softBrown font-semibold mt-2">We're always here to listen.</span>
+            <span className="block text-accent font-semibold mt-2">We're always here to listen.</span>
           </p>
         </motion.div>
 
@@ -165,13 +165,13 @@ export default function Contact() {
                   >
                     <motion.h3 
                       whileHover={{ scale: 1.05 }}
-                      className="font-display text-2xl font-bold text-dark"
+                      className="font-display text-2xl font-bold text-gray-800"
                     >
                       Gayatri
                     </motion.h3>
                     <motion.p 
                       whileHover={{ scale: 1.05 }}
-                      className="text-sm text-softBrown font-semibold"
+                      className="text-sm text-pink-600 font-semibold"
                     >
                       & Team
                     </motion.p>
@@ -196,22 +196,22 @@ export default function Contact() {
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 80 }}
               whileHover={{ 
-                boxShadow: "0 20px 40px rgba(236, 72, 153, 0.25)",
+                boxShadow: "0 20px 40px rgba(197, 129, 124, 0.25)",
                 y: -5,
                 scale: 1.02
               }}
-              className="bg-gradient-to-br from-pink-50/90 to-rose-50/90 backdrop-blur-md rounded-3xl p-10 shadow-lg border-2 border-pink-200/60 hover:shadow-2xl transition-all duration-300 cursor-pointer group"
+              className="glass-panel p-10 hover:shadow-2xl transition-all duration-300 cursor-pointer group"
             >
               <motion.h3
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                whileHover={{ scale: 1.05, color: "#c5817c" }}
-                className="text-3xl font-display font-bold text-dark mb-6 text-center transition-colors"
+                whileHover={{ scale: 1.05 }}
+                className="text-3xl font-display font-bold text-primary mb-6 text-center transition-colors group-hover:text-accent"
               >
                 Welcome to Our 
-                <span className="block text-softBrown">Cozy Corner</span>
+                <span className="block text-accent">Cozy Corner</span>
               </motion.h3>
               
               <motion.p 
@@ -219,7 +219,7 @@ export default function Contact() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="text-dark/75 leading-relaxed text-lg mb-6 font-body text-center"
+                className="text-secondary leading-relaxed text-lg mb-6 font-body text-center"
               >
                 We welcome your inquiries and are always here to assist you. Whether you have questions about our services, need support, or want to discuss your requirements, feel free to get in touch with us. Our team will respond promptly and ensure you receive the best possible assistance.
               </motion.p>
@@ -229,8 +229,8 @@ export default function Contact() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                whileHover={{ scale: 1.1, color: "#c5817c" }}
-                className="text-center text-base text-softBrown font-display font-semibold italic transition-all"
+                whileHover={{ scale: 1.1 }}
+                className="text-center text-base text-accent font-display font-semibold italic transition-all"
               >
                 ~ Gayatri and team
               </motion.div>
@@ -253,11 +253,11 @@ export default function Contact() {
                   scale: [1, 1.05, 1]
                 }}
                 transition={{ duration: 3, repeat: Infinity }}
-                className="absolute -inset-1 bg-gradient-to-r from-softBrown to-sage rounded-2xl blur-lg opacity-75 group-hover:opacity-100"
+                className="absolute -inset-1 bg-gradient-to-r from-accent to-accent-hover rounded-2xl blur-lg opacity-75 group-hover:opacity-100"
               />
               
               <motion.div 
-                className="relative px-8 py-6 bg-white rounded-2xl flex items-center justify-center gap-4 hover:shadow-2xl transition-all duration-300"
+                className="relative px-8 py-6 glass-panel flex items-center justify-center gap-4 hover:shadow-2xl transition-all duration-300"
                 whileHover={{ boxShadow: "0 25px 50px rgba(197, 129, 124, 0.35)" }}
               >
                 <motion.div
@@ -265,18 +265,18 @@ export default function Contact() {
                   whileTap={{ scale: 0.9 }}
                   transition={{ type: "spring", stiffness: 200 }}
                 >
-                  <Mail size={32} className="text-softBrown" />
+                  <Mail size={32} className="text-accent" />
                 </motion.div>
                 <div className="text-left">
-                  <h3 className="font-display text-2xl font-bold text-dark group-hover:text-softBrown transition-colors">Contact Us</h3>
-                  <p className="text-sm text-dark/60">{contactEmail}</p>
+                  <h3 className="font-display text-2xl font-bold text-primary group-hover:text-accent transition-colors">Contact Us</h3>
+                  <p className="text-sm text-secondary">{contactEmail}</p>
                 </div>
                 <motion.div
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 2, repeat: Infinity }}
-                  className="text-softBrown"
+                  className="text-accent"
                 >
-                  <ArrowRight size={24} className="text-softBrown opacity-70 group-hover:opacity-100 transition-all" />
+                  <ArrowRight size={24} className="text-accent opacity-70 group-hover:opacity-100 transition-all" />
                 </motion.div>
               </motion.div>
             </motion.a>
@@ -347,10 +347,10 @@ export default function Contact() {
                 whileHover={{ 
                   scale: 1.1, 
                   y: -8,
-                  boxShadow: "0 20px 40px rgba(236, 72, 153, 0.25)"
+                  boxShadow: "0 20px 40px rgba(197, 129, 124, 0.25)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-br from-sage/40 to-blush/40 rounded-2xl p-6 text-center hover:shadow-lg transition-all cursor-pointer border-2 border-sage/30 hover:border-sage/60"
+                className="glass-panel p-6 text-center hover:shadow-lg transition-all cursor-pointer"
               >
                 <motion.div 
                   animate={{ scale: [1, 1.2, 1], rotate: [0, 10, 0] }}
@@ -359,8 +359,8 @@ export default function Contact() {
                 >
                   💌
                 </motion.div>
-                <p className="text-sm font-semibold text-dark">Quick Response</p>
-                <p className="text-xs text-dark/60 mt-1">We reply promptly</p>
+                <p className="text-sm font-semibold text-primary">Quick Response</p>
+                <p className="text-xs text-secondary mt-1">We reply promptly</p>
               </motion.div>
 
               <motion.div
@@ -371,10 +371,10 @@ export default function Contact() {
                 whileHover={{ 
                   scale: 1.1, 
                   y: -8,
-                  boxShadow: "0 20px 40px rgba(251, 113, 133, 0.25)"
+                  boxShadow: "0 20px 40px rgba(197, 129, 124, 0.25)"
                 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-br from-blush/40 to-softBrown/40 rounded-2xl p-6 text-center hover:shadow-lg transition-all cursor-pointer border-2 border-blush/30 hover:border-blush/60"
+                className="glass-panel p-6 text-center hover:shadow-lg transition-all cursor-pointer"
               >
                 <motion.div 
                   animate={{ scale: [1, 1.2, 1], rotate: [0, -10, 0] }}
@@ -383,8 +383,8 @@ export default function Contact() {
                 >
                   🤝
                 </motion.div>
-                <p className="text-sm font-semibold text-dark">Always Here</p>
-                <p className="text-xs text-dark/60 mt-1">To assist you</p>
+                <p className="text-sm font-semibold text-primary">Always Here</p>
+                <p className="text-xs text-secondary mt-1">To assist you</p>
               </motion.div>
             </div>
           </motion.div>
@@ -396,10 +396,10 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center py-12 border-t border-sage/30"
+          className="text-center py-12 border-t border-border"
         >
           <div className="inline-block">
-            <p className="text-dark/70 text-lg mb-4">
+            <p className="text-secondary text-lg mb-4">
               <span className="text-3xl">✨</span> Thank you for being part of our journey
             </p>
             <div className="flex justify-center gap-6 mt-6">

@@ -1,5 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { ThemeProvider } from './context/ThemeContext';
 import Navbar from './components/Navbar';
+import BottomNav from './components/BottomNav';
 import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -19,40 +21,43 @@ import EditPost from './admin/EditPost';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        {/* Public Admin Login Route */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        
-        {/* Protected Admin Routes */}
-        <Route element={<ProtectedRoute />}>
-          <Route path="/admin/dashboard" element={<Dashboard />} />
-          <Route path="/admin/add-post" element={<AddPost />} />
-          <Route path="/admin/edit-post/:slug" element={<EditPost />} />
-          <Route path="/admin/links" element={<div className="flex h-screen items-center justify-center text-xl font-display">Manage Links (WIP)</div>} />
-        </Route>
-        
-        {/* Public Routes with Navbar/Footer */}
-        <Route path="*" element={
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow pt-20">
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/skincare" element={<Category category="skincare" />} />
-                <Route path="/fashion" element={<Category category="fashion" />} />
-                <Route path="/lifestyle" element={<Category category="lifestyle" />} />
-                <Route path="/products" element={<Products />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/post/:slug" element={<PostDetail />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
-        } />
-      </Routes>
-    </BrowserRouter>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          {/* Public Admin Login Route */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          
+          {/* Protected Admin Routes */}
+          <Route element={<ProtectedRoute />}>
+            <Route path="/admin/dashboard" element={<Dashboard />} />
+            <Route path="/admin/add-post" element={<AddPost />} />
+            <Route path="/admin/edit-post/:slug" element={<EditPost />} />
+            <Route path="/admin/links" element={<div className="flex h-screen items-center justify-center text-xl font-display">Manage Links (WIP)</div>} />
+          </Route>
+          
+          {/* Public Routes with Navbar/Footer */}
+          <Route path="*" element={
+            <div className="flex flex-col min-h-screen bg-surface text-primary transition-colors duration-300">
+              <Navbar />
+              <main className="flex-grow pt-20">
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/skincare" element={<Category category="skincare" />} />
+                  <Route path="/fashion" element={<Category category="fashion" />} />
+                  <Route path="/lifestyle" element={<Category category="lifestyle" />} />
+                  <Route path="/products" element={<Products />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/post/:slug" element={<PostDetail />} />
+                </Routes>
+              </main>
+              <BottomNav />
+              <Footer />
+            </div>
+          } />
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
