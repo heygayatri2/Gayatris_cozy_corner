@@ -78,16 +78,7 @@ export default function Navbar() {
               ))}
             </div>
 
-            {/* Dark Mode Toggle */}
-            <motion.button
-              onClick={toggleTheme}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-full text-secondary hover:text-primary hover:bg-surface-hover transition-colors"
-              aria-label="Toggle Dark Mode"
-            >
-              {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-            </motion.button>
+            {/* Dark mode removed per user request */}
           </div>
         </div>
       </div>
